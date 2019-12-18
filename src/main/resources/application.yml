@@ -1,0 +1,48 @@
+server:
+  port: 8081 #配置对应的端口号
+  tomcat:
+    min-spare-threads: 20
+    max-threads: 3000
+    max-connections: 30000
+    max-http-post-size:
+      0
+spring:
+  application:
+    name: spring-boot-jpa
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+      
+  #配置数据源
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=false
+    hikari:
+      username: root
+      password: 123456
+      minimum-idle: 3 #最小空闲连接数
+      idle-timeout: 120000 #空闲连接最长闲置时间，2分钟
+      maximum-pool-size: 10 #最大的连接数
+      auto-commit: false #关闭事务自动提交
+      max-lifetime: 1800000 #池中连接的最长时间
+      connection-timeout: 30000 #连接超时时间30s
+      connection-test-query: SELECT 1 #心跳测试语句
+  jpa:
+    database: MYSQL
+    show-sql: true
+    generate-ddl: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+  #配置responseBody返回的时间格式
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai 
+    serialization:
+      fail-on-empty-beans: false
+jwt:
+  secret: secret
+  expiration: 2592000000
+  token: Authorization
