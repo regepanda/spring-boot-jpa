@@ -28,7 +28,6 @@ public class JpaConfiguration implements WebMvcConfigurer {
 	
 	/**
 	 * 加入我们自定义的过滤器
-	 * @param registration
 	 * @return
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
