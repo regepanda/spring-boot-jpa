@@ -30,7 +30,7 @@ import lombok.Setter;
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 	
 	private String username;
 	
@@ -46,7 +46,7 @@ public class User {
 	@JsonFormat(timezone = "Asia/Shanghai", pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date dietime;
 	
-	@ManyToMany(cascade = {CascadeType.REFRESH}, fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.LAZY)
     private List<Role> roles;
 	
 	@CreatedDate
