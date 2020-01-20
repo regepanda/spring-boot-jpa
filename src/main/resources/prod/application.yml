@@ -1,5 +1,5 @@
 server:
-  port: 8081 #配置对应的端口号
+  port: 8082 #配置对应的端口号
   tomcat:
     min-spare-threads: 20
     max-threads: 3000
